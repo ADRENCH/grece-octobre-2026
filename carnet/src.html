@@ -1,0 +1,737 @@
+<title>Carnet de route Grèce</title>
+<meta name="description" content="Itinéraire, carte, budget et infos pratiques du voyage en Grèce du 3 au 11 octobre 2026">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=GFS+Didot&family=Commissioner:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout : carnet éditorial sur fond blanc chaulé — une colonne de lecture, pleine largeur pour photos, carte et tableaux. Chaque région a sa couleur. */
+:root{
+  --bg:#F4F6F7; --paper:#FFFFFF; --ink:#102331; --muted:#566977; --line:#D8E0E5; --soft:#EAF0F3;
+  --aegean:#1D539B; --olive:#5F6E33; --ochre:#A86F1F;
+  --sea:#DCE8EF; --land:#F3F0E8; --coast:#B4C3CC; --onimg:#FFFFFF;
+  --f-display:"GFS Didot","Didot","Bodoni 72","Times New Roman",serif;
+  --f-body:"Commissioner","Segoe UI",system-ui,-apple-system,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"Cascadia Mono",Consolas,monospace;
+  --wrap:1120px; --read:68ch; --r:6px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0C171E; --paper:#122029; --ink:#E6EDF1; --muted:#9BB0BD; --line:#22384A; --soft:#172A36;
+  --aegean:#7AA9EA; --olive:#A9BC6F; --ochre:#DDA75A;
+  --sea:#0F2636; --land:#1C2B33; --coast:#3B5566; color-scheme:dark }}
+:root[data-theme="dark"]{
+  --bg:#0C171E; --paper:#122029; --ink:#E6EDF1; --muted:#9BB0BD; --line:#22384A; --soft:#172A36;
+  --aegean:#7AA9EA; --olive:#A9BC6F; --ochre:#DDA75A;
+  --sea:#0F2636; --land:#1C2B33; --coast:#3B5566; color-scheme:dark }
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.6;font-weight:400;-webkit-font-smoothing:antialiased}
+.wrap{max-width:var(--wrap);margin:0 auto;padding-inline:20px}
+h1,h2,h3{font-family:var(--f-display);font-weight:400;line-height:1.08;text-wrap:balance;margin:0}
+h2{font-size:clamp(2rem,4.2vw,3rem)}
+h3{font-size:1.6rem}
+p{margin:0}
+a{color:var(--aegean);text-underline-offset:3px}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--aegean);outline-offset:2px}
+.eyebrow{font-family:var(--f-mono);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.gr{font-family:var(--f-display);letter-spacing:.02em}
+.num{font-variant-numeric:tabular-nums}
+.pelo{--c:var(--olive)} .cyc{--c:var(--aegean)} .att{--c:var(--ochre)}
+section{padding-block:72px}
+.sec-head{display:grid;gap:10px;margin-bottom:36px;max-width:var(--read)}
+.sec-head p{color:var(--muted)}
+.tag{display:inline-flex;align-items:center;gap:6px;font-family:var(--f-mono);font-size:.72rem;letter-spacing:.06em;padding:2px 8px;border-radius:99px;border:1px solid var(--line);color:var(--muted);white-space:nowrap}
+.tag.price{color:var(--ink);border-color:color-mix(in srgb,var(--c,var(--aegean)) 45%,var(--line))}
+.tag.warn{color:var(--ochre);border-color:color-mix(in srgb,var(--ochre) 50%,var(--line))}
+.tag.free{color:var(--olive);border-color:color-mix(in srgb,var(--olive) 50%,var(--line))}
+
+/* HERO */
+.hero{padding-block:40px 28px}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:28px;align-items:stretch}
+.hero-text{display:flex;flex-direction:column;justify-content:space-between;gap:28px;padding-block:8px}
+.hero h1{font-size:clamp(3rem,7.6vw,6.2rem);letter-spacing:-.01em}
+.hero h1 em{font-style:italic;color:var(--aegean)}
+.hero .lede{font-size:1.12rem;color:var(--muted);max-width:44ch}
+.hero-facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;border-top:1px solid var(--line)}
+.hero-facts div{padding:14px 12px 0 0}
+.hero-facts b{display:block;font-family:var(--f-display);font-size:2rem;font-weight:400;line-height:1}
+.hero-facts span{font-size:.82rem;color:var(--muted)}
+.mosaic{display:grid;grid-template-columns:1.4fr 1fr;grid-template-rows:1fr 1fr;gap:8px;min-height:440px}
+.mosaic figure{margin:0;position:relative;overflow:hidden;border-radius:var(--r)}
+.mosaic figure:first-child{grid-row:1/3}
+.mosaic img{width:100%;height:100%;object-fit:cover;display:block}
+.mosaic figcaption{position:absolute;left:10px;bottom:8px;font-family:var(--f-mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--onimg);text-shadow:0 1px 6px rgba(0,0,0,.55)}
+.meander{height:14px;margin-top:36px;color:var(--aegean);opacity:.55}
+.meander svg{display:block;width:100%;height:14px}
+
+/* ITINÉRAIRE RAPIDE */
+.strip{display:grid;grid-template-columns:repeat(9,minmax(0,1fr));border:1px solid var(--line);border-radius:var(--r);background:var(--paper);overflow:hidden}
+.strip a{display:grid;gap:4px;padding:14px 12px;text-decoration:none;color:var(--ink);border-right:1px solid var(--line);border-top:4px solid var(--c)}
+.strip a:last-child{border-right:0}
+.strip a:hover{background:var(--soft)}
+.strip .d{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.strip .p{font-family:var(--f-display);font-size:1.15rem;line-height:1.1}
+.strip .w{font-size:.78rem;color:var(--muted);line-height:1.35}
+
+/* CARTE */
+.map-box{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.map{display:block;width:100%;height:auto}
+.mob-maps{display:none}
+.mob-cap{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding:12px 14px 8px;border-top:1px solid var(--line)}
+.mob-cap:first-child{border-top:0}
+.map .sea-l{font-family:var(--f-display);font-style:italic;font-size:15px;fill:var(--coast);letter-spacing:.04em}
+.map .isl{font-family:var(--f-display);font-style:italic;font-size:13px;fill:var(--muted)}
+.map .fl{font-family:var(--f-mono);font-size:11px;fill:var(--aegean)}
+.map.mob .sl{font-size:20.5px;stroke-width:4.5px}
+.map.mob .bl{font-size:25px;stroke-width:5px}
+.map.mob .bd{font-size:16px;stroke-width:4px}
+.map.mob .bn{font-size:15px}
+.map.mob .rg{font-size:14px;letter-spacing:.25em}
+.map.mob .sea-l{font-size:19px}
+.map.mob .isl{font-size:17px}
+.map.mob .fl{font-size:15px}
+.map.mob .r{stroke-width:4}
+.map.mob .f,.map.mob .m{stroke-width:3.2}
+.map.mob .scale text{font-size:14px}
+.map .r{fill:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.map .r.pelo{stroke:var(--olive)} .map .r.att{stroke:var(--ochre)}
+.map .f{fill:none;stroke:var(--aegean);stroke-width:2.6;stroke-dasharray:2 7;stroke-linecap:round}
+.map .f.small{stroke-width:2}
+.map .m{fill:none;stroke:var(--ochre);stroke-width:2.2;stroke-dasharray:8 5}
+.map .s{fill:var(--paper);stroke:var(--ink);stroke-width:1.6}
+.map .sl{font-family:var(--f-body);font-size:13px;fill:var(--ink);paint-order:stroke;stroke:var(--land);stroke-width:3.5px;stroke-linejoin:round}
+.map .b circle{fill:var(--c);stroke:var(--paper);stroke-width:2.5}
+.map .bn{font-family:var(--f-mono);font-size:12px;font-weight:500;fill:var(--paper)}
+.map .bl{font-family:var(--f-display);font-size:19px;fill:var(--ink);paint-order:stroke;stroke:var(--land);stroke-width:4px;stroke-linejoin:round}
+.map .bd{font-family:var(--f-mono);font-size:11.5px;fill:var(--muted);paint-order:stroke;stroke:var(--land);stroke-width:3.5px}
+.map .rg{font-family:var(--f-mono);font-size:12px;letter-spacing:.3em;fill:var(--muted);opacity:.8}
+.map .scale path{stroke:var(--muted);stroke-width:1.5;fill:none}
+.map .scale text{font-family:var(--f-mono);font-size:11px;fill:var(--muted)}
+.legend{display:flex;flex-wrap:wrap;gap:10px 22px;padding:14px 18px;border-top:1px solid var(--line);font-size:.85rem;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:8px}
+.legend i{display:inline-block;width:28px;height:0;border-top:3px solid var(--c)}
+.legend i.dash{border-top:3px dotted var(--aegean)}
+.legend i.metro{border-top:3px dashed var(--ochre)}
+
+/* LOGEMENTS */
+.stays{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.stay{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:18px;display:grid;gap:8px;align-content:start;border-top:4px solid var(--c)}
+.stay .n{font-family:var(--f-mono);font-size:.72rem;color:var(--c);letter-spacing:.08em;text-transform:uppercase}
+.stay h3{font-size:1.35rem}
+.stay p{font-size:.88rem;color:var(--muted)}
+.stay .when{font-family:var(--f-mono);font-size:.8rem;color:var(--ink)}
+
+/* JOURS */
+.day{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:40px;padding-block:56px;border-top:1px solid var(--line)}
+.day:nth-of-type(even) .day-media{order:2}
+.day-media{display:grid;gap:8px;align-content:start;position:sticky;top:16px}
+.day-media figure{margin:0;border-radius:var(--r);overflow:hidden;position:relative}
+.day-media img{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover}
+.day-media .pair{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.day-media .pair img{aspect-ratio:4/3}
+.day-media figcaption{position:absolute;left:10px;bottom:8px;font-family:var(--f-mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--onimg);text-shadow:0 1px 6px rgba(0,0,0,.6)}
+.day-head{display:grid;gap:6px;margin-bottom:22px}
+.day-head .eyebrow{color:var(--c)}
+.day-head h3{font-size:clamp(1.9rem,3.4vw,2.6rem)}
+.day-head .sub{color:var(--muted)}
+.day-head .meta{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.plan{list-style:none;margin:0;padding:0;display:grid}
+.plan li{display:grid;grid-template-columns:62px minmax(0,1fr);gap:14px;padding-block:12px;border-bottom:1px dashed var(--line)}
+.plan li:last-child{border-bottom:0}
+.plan time{font-family:var(--f-mono);font-size:.82rem;color:var(--c);padding-top:2px;font-variant-numeric:tabular-nums}
+.plan b{font-weight:600}
+.plan .txt{display:grid;gap:5px}
+.plan .txt p{font-size:.93rem;color:var(--muted)}
+.plan .tags{display:flex;flex-wrap:wrap;gap:6px}
+.note{margin-top:18px;padding:14px 16px;border-radius:var(--r);background:var(--soft);font-size:.9rem;display:grid;gap:4px}
+.note b{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--c)}
+
+/* TRANSPORT */
+.cmp-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r);background:var(--paper)}
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+th,td{padding:11px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+thead th{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:500;background:var(--soft)}
+tbody th{font-weight:500;color:var(--muted);width:30%}
+tr.total td,tr.total th{font-weight:600;color:var(--ink);background:var(--soft)}
+td.r,th.r{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.verdict{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:16px}
+.verdict div{padding:16px 18px;border-radius:var(--r);border:1px solid var(--line);background:var(--paper);display:grid;gap:6px}
+.verdict h3{font-size:1.3rem}
+.verdict p{font-size:.9rem;color:var(--muted)}
+.verdict .rec{border-color:var(--aegean)}
+.verdict .rec .eyebrow{color:var(--aegean)}
+
+/* BUDGET */
+.budget{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:24px;align-items:start}
+.bgroup{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;margin-bottom:14px}
+.bgroup h3{font-size:1.2rem;padding:14px 16px 10px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.bgroup h3 .eyebrow{color:var(--c)}
+.brow{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:12px;align-items:center;padding:9px 16px;border-bottom:1px dashed var(--line);font-size:.92rem}
+.brow:last-child{border-bottom:0}
+.brow input{width:18px;height:18px;accent-color:var(--aegean);margin:0}
+.brow label{cursor:pointer;display:grid;gap:1px}
+.brow small{color:var(--muted);font-size:.8rem}
+.brow .r{font-family:var(--f-mono);font-size:.86rem;font-variant-numeric:tabular-nums;white-space:nowrap}
+.brow.off{opacity:.55}
+.summary{position:sticky;top:16px;background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:20px;display:grid;gap:14px}
+.summary .big{font-family:var(--f-display);font-size:3.4rem;line-height:1;font-variant-numeric:tabular-nums}
+.summary .grp{color:var(--muted);font-size:.9rem}
+.seg{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.seg button{font:inherit;font-size:.85rem;padding:9px 6px;border:0;background:transparent;color:var(--ink);cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--aegean);color:var(--paper)}
+.field{display:grid;gap:6px;font-size:.85rem;color:var(--muted)}
+.field select{font:inherit;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:8px}
+.split{display:grid;gap:6px;font-size:.88rem}
+.split div{display:flex;justify-content:space-between;gap:10px;border-bottom:1px dashed var(--line);padding-bottom:5px}
+.split div span:last-child{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+.fine{font-size:.78rem;color:var(--muted)}
+
+/* PRATIQUE */
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:18px;display:grid;gap:8px;align-content:start}
+.card h3{font-size:1.25rem}
+.card ul{margin:0;padding-left:18px;display:grid;gap:5px;font-size:.9rem;color:var(--muted)}
+.card ul b{color:var(--ink);font-weight:600}
+
+/* À RÉSERVER */
+.todo{display:grid;gap:0;background:var(--paper);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.todo label{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:14px;align-items:center;padding:13px 16px;border-bottom:1px solid var(--line);cursor:pointer}
+.todo label:last-child{border-bottom:0}
+.todo input{width:18px;height:18px;accent-color:var(--olive);margin:0}
+.todo .t{display:grid;gap:2px}
+.todo small{color:var(--muted);font-size:.82rem}
+.todo input:checked + .t b{text-decoration:line-through;color:var(--muted)}
+.prio{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.prio.now{color:var(--ochre)}
+
+/* LEXIQUE */
+.lex{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.lex div{background:var(--paper);padding:14px 16px;display:grid;gap:2px}
+.lex .g{font-family:var(--f-display);font-size:1.35rem}
+.lex .ph{font-family:var(--f-mono);font-size:.8rem;color:var(--aegean)}
+.lex .fr{font-size:.85rem;color:var(--muted)}
+
+footer{padding-block:48px 64px;border-top:1px solid var(--line);font-size:.8rem;color:var(--muted);display:grid;gap:14px}
+footer h3{font-size:1.1rem;color:var(--ink)}
+footer ul{margin:0;padding-left:18px;display:grid;gap:3px}
+.cols{columns:2;column-gap:32px}
+
+@media (max-width:980px){
+  .hero-grid,.day,.budget{grid-template-columns:minmax(0,1fr)}
+  .day:nth-of-type(even) .day-media{order:0}
+  .day-media,.summary{position:static}
+  .stays{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .lex{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .strip{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .strip a{border-bottom:1px solid var(--line)}
+}
+@media (max-width:700px){
+  .map.desk{display:none}
+  .mob-maps{display:block}
+}
+@media (max-width:620px){
+  body{font-size:15.5px}
+  .wrap{padding-inline:16px}
+  section{padding-block:44px}
+  .sec-head{margin-bottom:24px}
+  h2{font-size:2.1rem}
+  .hero{padding-block:24px 8px}
+  .hero h1{font-size:3.1rem}
+  .hero .lede{font-size:1.02rem}
+  .hero-grid{gap:22px}
+  .mosaic{min-height:0;grid-template-columns:1fr 1fr;grid-template-rows:200px 120px}
+  .mosaic figure:first-child{grid-row:auto;grid-column:1/3}
+  .hero-facts{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:6px}
+  .hero-facts b{font-size:1.7rem}
+  .meander{margin-top:24px}
+
+  /* bandeau des jours : défilement horizontal */
+  .strip{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;margin-inline:-16px;border-radius:0;border-inline:0}
+  .strip::-webkit-scrollbar{display:none}
+  .strip a{flex:0 0 42%;scroll-snap-align:start;border-bottom:0}
+
+  .stays,.cards,.verdict{grid-template-columns:minmax(0,1fr)}
+
+  /* photos du jour : carrousel qu'on fait glisser */
+  .day{gap:18px;padding-block:36px}
+  .day-media{display:flex;gap:8px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;margin-inline:-16px;padding-inline:16px;scroll-padding-inline:16px}
+  .day-media::-webkit-scrollbar{display:none}
+  .day-media .pair{display:contents}
+  .day-media figure{flex:0 0 86%;scroll-snap-align:start}
+  .day-media figure:only-child{flex-basis:100%}
+  .day-media img,.day-media .pair img{aspect-ratio:3/2}
+  .day-head h3{font-size:1.9rem}
+  .plan li{grid-template-columns:48px minmax(0,1fr);gap:10px;padding-block:11px}
+  .plan time{font-size:.78rem}
+  .plan .txt p{font-size:.9rem}
+  .note{font-size:.88rem}
+
+  /* tableau transport : texte qui passe à la ligne */
+  table{font-size:.82rem}
+  th,td{padding:9px 8px}
+  td.r,th.r{white-space:normal}
+  tbody th{width:34%}
+  td small{display:block}
+
+  /* budget : le total d'abord */
+  .summary{order:-1}
+  .summary .big{font-size:2.8rem}
+  .brow{padding:9px 12px;gap:10px}
+
+  .todo label{grid-template-columns:auto minmax(0,1fr);row-gap:2px}
+  .todo .prio{grid-column:2}
+  .lex .g{font-size:1.2rem}
+  .lex div{padding:12px}
+  .cols{columns:1}
+}
+@media (prefers-reduced-motion:no-preference){
+  .mosaic img{transition:transform .8s ease}
+  .mosaic figure:hover img{transform:scale(1.03)}
+}
+</style>
+
+<div class="wrap">
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="hero-grid">
+    <div class="hero-text">
+      <div style="display:grid;gap:18px">
+        <span class="eyebrow">Carnet de route · 3 → 11 octobre 2026</span>
+        <h1>Grèce,<br><em>Péloponnèse</em><br>&amp; Cyclades</h1>
+        <p class="lede">Huit nuits entre amis : les forteresses vénitiennes de Nauplie, les sites antiques d'Argolide, une nuit à Mykonos et trois jours au pied de l'Acropole.</p>
+      </div>
+      <div class="hero-facts num">
+        <div><b>7</b><span>voyageurs</span></div>
+        <div><b>4</b><span>logements</span></div>
+        <div><b>≈ 770</b><span>km de route</span></div>
+        <div><b>11</b><span>sites antiques</span></div>
+      </div>
+    </div>
+    <div class="mosaic">
+      <figure><img src="img/nafplio.jpg" alt="Nauplie, l'Akronauplie et le golfe d'Argolide vus depuis Palamidi"><figcaption>Nauplie</figcaption></figure>
+      <figure><img src="img/littlevenice.jpg" alt="Little Venice à Mykonos au coucher du soleil"><figcaption>Mykonos</figcaption></figure>
+      <figure><img src="img/parthenon.jpg" alt="L'Acropole d'Athènes vue de la colline de Philopappou"><figcaption>Athènes</figcaption></figure>
+    </div>
+  </div>
+  <div class="meander" aria-hidden="true"><svg preserveAspectRatio="none" viewBox="0 0 240 14"><defs><pattern id="mk" width="24" height="14" patternUnits="userSpaceOnUse"><path d="M1 13V1h16v9H7V5h6" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M17 13h7" stroke="currentColor" stroke-width="1.6"/></pattern></defs><rect width="240" height="14" fill="url(#mk)"/></svg></div>
+</header>
+
+<!-- ============ EN UN COUP D'ŒIL ============ -->
+<section id="apercu" style="padding-top:24px">
+  <div class="sec-head"><span class="eyebrow">Ταξίδι · le voyage en un coup d'œil</span><h2>Neuf jours, trois régions</h2></div>
+  <nav class="strip" aria-label="Jours du voyage">
+    <a class="att" href="#j0"><span class="d">Sam. 3</span><span class="p">Athènes</span><span class="w">Arrivée des 4, soirée à Psyrri</span></a>
+    <a class="pelo" href="#j1"><span class="d">Dim. 4</span><span class="p">Nauplie</span><span class="w">Canal de Corinthe en route</span></a>
+    <a class="pelo" href="#j2"><span class="d">Lun. 5</span><span class="p">Nauplie</span><span class="w">Palamidi, Bourtzi, Épidaure</span></a>
+    <a class="pelo" href="#j3"><span class="d">Mar. 6</span><span class="p">Corinthe</span><span class="w">Acrocorinthe, Némée, Mycènes</span></a>
+    <a class="cyc" href="#j4"><span class="d">Mer. 7</span><span class="p">Mykonos</span><span class="w">Ferry, moulins, Little Venice</span></a>
+    <a class="cyc" href="#j5"><span class="d">Jeu. 8</span><span class="p">Délos</span><span class="w">Île sacrée, ferry retour</span></a>
+    <a class="att" href="#j6"><span class="d">Ven. 9</span><span class="p">Athènes</span><span class="w">Plaka, musée, Psyrri</span></a>
+    <a class="att" href="#j7"><span class="d">Sam. 10</span><span class="p">Acropole</span><span class="w">Agora, cap Sounion</span></a>
+    <a class="att" href="#j8"><span class="d">Dim. 11</span><span class="p">Retour</span><span class="w">Aéroport à 15 min</span></a>
+  </nav>
+</section>
+
+<!-- ============ CARTE ============ -->
+<section id="carte" style="padding-top:0">
+  <div class="sec-head"><span class="eyebrow">Χάρτης · la carte</span><h2>Le parcours</h2><p>Les numéros sont les quatre logements. Les points blancs sont les visites prévues.</p></div>
+  <div class="map-box">
+{{MAP}}
+    <div class="legend">
+      <span class="pelo"><i></i>Route Péloponnèse</span>
+      <span class="att"><i></i>Route Attique</span>
+      <span><i class="dash"></i>Ferry et bateau</span>
+      <span><i class="metro"></i>Métro ligne 3</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LOGEMENTS ============ -->
+<section id="logements" style="padding-top:0">
+  <div class="sec-head"><span class="eyebrow">Διαμονή · les logements</span><h2>Où l'on dort</h2></div>
+  <div class="stays">
+    <article class="stay att"><span class="n">1 · les 4 premiers</span><h3>Appartement Athènes</h3><span class="when num">Sam. 3 → dim. 4</span><p>Entre Omonia et Psyrri, à 10 min à pied de Monastiraki.</p><a href="https://www.airbnb.fr/rooms/1307191086830155884">Annonce Airbnb</a></article>
+    <article class="stay pelo"><span class="n">2 · yaqueca</span><h3>Nafos Villa Stella</h3><span class="when num">Dim. 4 → mer. 7 · 3 nuits</span><p>Lefkakia, à 5 km à l'est de Nauplie, sur la route des plages de Karathona et Tolo.</p><a href="https://www.airbnb.fr/rooms/1655779643959431250">Annonce Airbnb</a></article>
+    <article class="stay cyc"><span class="n">3 · pasmal</span><h3>Villa Navona</h3><span class="when num">Mer. 7 → jeu. 8 · 1 nuit</span><p>Nord-ouest de Mykonos, au-dessus d'Agios Stefanos. 280 m², 5 chambres, piscine privée, vue sur le coucher de soleil. Arrivée dès 15 h, départ avant 11 h. <b>Caution de 300 € en espèces.</b></p><a href="https://www.booking.com/hotel/gr/villa-caramella-mykonos-private-pool.fr.html">Fiche Booking</a></article>
+    <article class="stay att"><span class="n">4 · bigfeet</span><h3>Maison Petrino</h3><span class="when num">Jeu. 8 → dim. 11 · 3 nuits</span><p>Maison avec piscine entre Koropi et Markopoulo, à 15 min de l'aéroport et 5 min du métro de Koropi.</p><a href="https://www.airbnb.fr/rooms/1588215152418796593">Annonce Airbnb</a></article>
+  </div>
+</section>
+
+<!-- ============ JOURS ============ -->
+<section id="jours" style="padding-top:0">
+  <div class="sec-head"><span class="eyebrow">Πρόγραμμα · le programme</span><h2>Jour par jour</h2><p>Les heures sont indicatives. Les prix sont des tarifs pleins par personne, relevés en 2026. Une étiquette « à confirmer » signale une information que les sources ne donnent pas de façon concordante.</p></div>
+
+  <article class="day att" id="j0">
+    <div class="day-media">
+      <figure><img loading="lazy" src="img/monastiraki.jpg" alt="Place Monastiraki et l'Acropole au soleil couchant"><figcaption>Monastiraki</figcaption></figure>
+    </div>
+    <div>
+      <div class="day-head"><span class="eyebrow">Ημέρα 0 · samedi 3 octobre</span><h3>Première soirée à Athènes</h3><p class="sub">Pour les 4 qui arrivent en avance. L'appartement est au cœur du quartier qui sort.</p></div>
+      <ol class="plan">
+        <li><time>18:30</time><div class="txt"><b>Rooftop face à l'Acropole</b><p>A for Athens ou 360 Cocktail Bar, place Monastiraki. Coucher du soleil vers 19 h 00, réservez une table.</p><div class="tags"><span class="tag price">cocktail 12–15 €</span></div></div></li>
+        <li><time>20:30</time><div class="txt"><b>Souvlaki chez Lefteris O Politis</b><p>Institution depuis 1951, rue Satovriandou, à deux pas de l'appartement. Pour s'asseoir : Bairaktaris à Monastiraki.</p><div class="tags"><span class="tag price">2–4 € la pita</span></div></div></li>
+        <li><time>22:00</time><div class="txt"><b>Bars de Psyrri</b><p>Le quartier de sortie le plus vivant, à 5 min à pied.</p></div></li>
+      </ol>
+      <div class="note"><b>Dimanche matin</b><span>Métro ligne 1 jusqu'à Monastiraki, puis ligne 3 jusqu'à l'aéroport : environ 50 min, billet aéroport à 9 €. Partez vers 8 h pour récupérer le véhicule avant l'arrivée des 3 autres.</span></div>
+    </div>
+  </article>
+
+  <article class="day pelo" id="j1">
+    <div class="day-media">
+      <figure><img loading="lazy" src="img/canal.jpg" alt="Le canal de Corinthe vu du pont, parois de 80 mètres"><figcaption>Canal de Corinthe</figcaption></figure>
+      <div class="pair">
+        <figure><img loading="lazy" src="img/palamidi.jpg" alt="Vue depuis Palamidi sur Nauplie et le Bourtzi"><figcaption>Arvanitia</figcaption></figure>
+        <figure><img loading="lazy" src="img/bourtzi.jpg" alt="Le château du Bourtzi dans la baie de Nauplie"><figcaption>Bourtzi</figcaption></figure>
+      </div>
+    </div>
+    <div>
+      <div class="day-head"><span class="eyebrow">Ημέρα 1 · dimanche 4 octobre</span><h3>Cap sur le Péloponnèse</h3><p class="sub">Tout le groupe se retrouve à l'aéroport. Route vers Nauplie avec un arrêt au canal, qui est sur le chemin.</p><div class="meta"><span class="tag">≈ 175 km · 2 h 15 de route</span><span class="tag">péages ≈ 10 €</span></div></div>
+      <ol class="plan">
+        <li><time>09:30</time><div class="txt"><b>Retrouvailles à l'aéroport</b><p>Récupération du véhicule au comptoir du loueur. Le titulaire de la réservation doit avoir sa carte de crédit.</p></div></li>
+        <li><time>11:45</time><div class="txt"><b>Canal de Corinthe</b><p>6,3 km creusés dans la roche en 1893, avec des parois de près de 80 m. Arrêt sur la passerelle piétonne du vieux pont, avec un peu de chance au passage d'un bateau.</p><div class="tags"><span class="tag free">gratuit</span><span class="tag">30–45 min</span></div></div></li>
+        <li><time>12:30</time><div class="txt"><b>Déjeuner sur l'isthme</b><p>Tavernes et cafés au bord du canal ou à Isthmia.</p></div></li>
+        <li><time>15:00</time><div class="txt"><b>Installation à Lefkakia</b><p>Nafos Villa Stella, puis temps libre à la villa.</p></div></li>
+        <li><time>18:15</time><div class="txt"><b>Promenade d'Arvanitia</b><p>Le chemin fait le tour du rocher de l'Akronauplie au ras de l'eau, en 15 min, avec le coucher de soleil sur le golfe.</p><div class="tags"><span class="tag free">gratuit</span></div></div></li>
+        <li><time>20:30</time><div class="txt"><b>Dîner dans la vieille ville</b><p>Mezedopoleio O Noulis : petites assiettes à partager et fromage flambé. Réservez pour 7.</p><div class="tags"><span class="tag price">≈ 20–25 € / pers.</span></div></div></li>
+      </ol>
+      <div class="note"><b>Courses</b><span>Les supermarchés grecs sont fermés le dimanche. Prévoyez le petit-déjeuner de lundi en route (stations-service) ou faites les courses lundi matin à Nauplie (Lidl, Sklavenitis).</span></div>
+    </div>
+  </article>
+
+  <article class="day pelo" id="j2">
+    <div class="day-media">
+      <figure><img loading="lazy" src="img/nafplio.jpg" alt="Nauplie et l'Akronauplie depuis la forteresse de Palamidi"><figcaption>Nauplie depuis Palamidi</figcaption></figure>
+      <figure><img loading="lazy" src="img/epidaurus.jpg" alt="Le théâtre antique d'Épidaure"><figcaption>Théâtre d'Épidaure</figcaption></figure>
+    </div>
+    <div>
+      <div class="day-head"><span class="eyebrow">Ημέρα 2 · lundi 5 octobre</span><h3>Nauplie, puis Épidaure</h3><p class="sub">La première capitale de la Grèce moderne, ses deux forteresses vénitiennes, et le théâtre antique le mieux conservé du pays.</p><div class="meta"><span class="tag">≈ 90 km</span></div></div>
+      <ol class="plan">
+        <li><time>08:00</time><div class="txt"><b>Forteresse de Palamidi</b><p>Construite par les Vénitiens entre 1711 et 1714. On monte par les fameuses « 999 marches », qui sont en réalité environ 860 (30 à 45 min sans ombre), ou en voiture jusqu'à l'entrée haute. Allez-y tôt, avant la chaleur.</p><div class="tags"><span class="tag price">20 €</span><span class="tag">8 h–18 h 30</span></div></div></li>
+        <li><time>10:30</time><div class="txt"><b>Vieille ville</b><p>Place Syntagma, ruelles à balcons fleuris, café sur le port.</p><div class="tags"><span class="tag free">gratuit</span></div></div></li>
+        <li><time>12:00</time><div class="txt"><b>Bourtzi</b><p>Le petit château posé dans la baie, en bateau depuis le port (départs environ toutes les 30 min).</p><div class="tags"><span class="tag price">bateau 7 € + entrée 7 €</span><span class="tag warn">tarifs à confirmer</span></div></div></li>
+        <li><time>13:30</time><div class="txt"><b>Déjeuner de poisson</b><p>Arapakos, sur le front de mer, réputé pour ses calamars.</p></div></li>
+        <li><time>15:00</time><div class="txt"><b>Théâtre d'Épidaure</b><p>Théâtre du IVe siècle av. J.-C. de 14 000 places, à 40 min. Son acoustique est célèbre : une pièce lâchée au centre s'entend du dernier rang. Visitez aussi le sanctuaire d'Asclépios.</p><div class="tags"><span class="tag price">20 €</span><span class="tag">8 h–18 h 30</span></div></div></li>
+        <li><time>21:00</time><div class="txt"><b>Soirée sur le port</b><p>Cocktails chez Ydragogio (19 h–3 h), ou bar à vin Rosso dans la vieille ville.</p></div></li>
+      </ol>
+      <div class="note"><b>Variante sportive</b><span>À la place d'Épidaure : kayak de mer au pied des forteresses avec PanExpeditions, au départ de Karathona. Environ 4 h avec snorkeling, 75 € par personne.</span></div>
+    </div>
+  </article>
+
+  <article class="day pelo" id="j3">
+    <div class="day-media">
+      <figure><img loading="lazy" src="img/mycenae.jpg" alt="La porte des Lions de Mycènes"><figcaption>Porte des Lions, Mycènes</figcaption></figure>
+      <div class="pair">
+        <figure><img loading="lazy" src="img/acrocorinth.jpg" alt="Les remparts de l'Acrocorinthe sur leur rocher"><figcaption>Acrocorinthe</figcaption></figure>
+        <figure><img loading="lazy" src="img/corinth.jpg" alt="Le temple d'Apollon à Corinthe antique"><figcaption>Temple d'Apollon</figcaption></figure>
+      </div>
+      <figure><img loading="lazy" src="img/nemea.jpg" alt="Les colonnes du temple de Zeus à Némée"><figcaption>Némée</figcaption></figure>
+    </div>
+    <div>
+      <div class="day-head"><span class="eyebrow">Ημέρα 3 · mardi 6 octobre</span><h3>Corinthe et l'Argolide antique</h3><p class="sub">Une boucle d'environ 170 km. On commence par l'Acrocorinthe, qui ferme tôt, et on finit par Mycènes sur le chemin du retour.</p><div class="meta"><span class="tag">≈ 170 km</span><span class="tag">péages ≈ 6 €</span></div></div>
+      <ol class="plan">
+        <li><time>08:30</time><div class="txt"><b>Départ de Lefkakia</b><p>Environ 1 h de route jusqu'à Corinthe.</p></div></li>
+        <li><time>09:30</time><div class="txt"><b>Acrocorinthe</b><p>Forteresse sur un rocher de 575 m, occupée de l'Antiquité aux Ottomans. Vue sur les deux golfes. Il faut marcher, prévoyez de bonnes chaussures.</p><div class="tags"><span class="tag free">gratuit</span><span class="tag warn">ferme à 15 h 30</span></div></div></li>
+        <li><time>11:30</time><div class="txt"><b>Corinthe antique</b><p>Temple d'Apollon du VIe siècle av. J.-C., agora romaine, tribune où aurait prêché saint Paul, et musée.</p><div class="tags"><span class="tag price">15 €</span><span class="tag warn">prix à confirmer (15 ou 20 €)</span></div></div></li>
+        <li><time>13:00</time><div class="txt"><b>Déjeuner au village</b><p>Tavernes d'Archaia Korinthos, au pied du site.</p></div></li>
+        <li><time>14:30</time><div class="txt"><b>Dégustation à Némée</b><p>Domaine Lafazanis, sur la route : la région du agiorgitiko, le grand rouge grec. Réservation obligatoire, fermeture à 16 h. Le conducteur crache. Le temple de Zeus de Némée est à 10 min.</p><div class="tags"><span class="tag price">dès 20 €</span><span class="tag">mar.–sam. 9 h–16 h</span></div></div></li>
+        <li><time>16:15</time><div class="txt"><b>Mycènes</b><p>La cité d'Agamemnon : porte des Lions, cercle des tombes royales, trésor d'Atrée. À 30 min de la villa.</p><div class="tags"><span class="tag price">20 €</span><span class="tag warn">fermeture 18 h 30 à confirmer</span></div></div></li>
+      </ol>
+      <div class="note"><b>Pourquoi le canal est passé dimanche</b><span>D'après un guide (information non confirmée par l'exploitant), le canal est fermé aux bateaux le mardi pour maintenance. On le voit donc le dimanche, en arrivant.</span></div>
+    </div>
+  </article>
+
+  <article class="day cyc" id="j4">
+    <div class="day-media">
+      <figure><img loading="lazy" src="img/littlevenice.jpg" alt="Little Venice à Mykonos au coucher du soleil"><figcaption>Little Venice</figcaption></figure>
+      <figure><img loading="lazy" src="img/windmills.jpg" alt="Coucher de soleil derrière les moulins de Kato Mili"><figcaption>Moulins de Kato Mili</figcaption></figure>
+    </div>
+    <div>
+      <div class="day-head"><span class="eyebrow">Ημέρα 4 · mercredi 7 octobre</span><h3>Cap sur Mykonos</h3><p class="sub">Route jusqu'au port de Rafina, puis 2 h 40 de ferry rapide. Le véhicule reste garé à Rafina.</p><div class="meta"><span class="tag">≈ 185 km · 2 h 30 de route</span><span class="tag">péages ≈ 10,50 €</span></div></div>
+      <ol class="plan">
+        <li><time>10:00</time><div class="txt"><b>Départ de Lefkakia</b><p>Vérifiez l'heure de départ demandée par la villa.</p></div></li>
+        <li><time>12:30</time><div class="txt"><b>Parking à Rafina</b><p>Safe Park Harbour, à 50 m du quai (+30 22940 25104), ou Safe Park Beach. Ces parkings ne sont pas gardés : ne laissez rien de visible. Déjeuner rapide sur le port.</p><div class="tags"><span class="tag price">≈ 11 € / jour</span></div></div></li>
+        <li><time>14:20</time><div class="txt"><b>Ferry Seajets Rafina → Mykonos</b><p>Arrivée vers 17 h 00 au nouveau port (Tourlos). Présentez-vous 45 min avant le départ.</p><div class="tags"><span class="tag price">≈ 36–60 €</span><span class="tag warn">horaire à confirmer</span></div></div></li>
+        <li><time>17:15</time><div class="txt"><b>Véhicules livrés au port</b><p>2 petites voitures ou 4 quads réservés à l'avance avec livraison au port. Les taxis sont rares sur l'île. La villa est à environ 10 min.</p><div class="tags"><span class="tag price">≈ 15–25 € / pers.</span></div></div></li>
+        <li><time>18:30</time><div class="txt"><b>Coucher de soleil</b><p>Depuis la piscine de la villa, orientée plein ouest, ou depuis les moulins de Kato Mili au-dessus de Chora. Soleil couché vers 18 h 50.</p><div class="tags"><span class="tag free">gratuit</span></div></div></li>
+        <li><time>20:00</time><div class="txt"><b>Chora</b><p>Little Venice, l'église blanche de Paraportiani et la rue commerçante Matoyianni. Dîner chez Niko's Taverna (pratique à 7) ou gyros chez Sakis (≈ 7 €).</p></div></li>
+        <li><time>23:00</time><div class="txt"><b>Bars de Little Venice</b><p>Les grands clubs ont fermé pour la saison (Scorpios le 4 octobre, Cavo Paradiso fin septembre). Les bars du front de mer, comme Scarpa, restent ouverts.</p><div class="tags"><span class="tag price">cocktail 12–18 €</span></div></div></li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="day cyc" id="j5">
+    <div class="day-media">
+      <figure><img loading="lazy" src="img/delos.jpg" alt="La terrasse des Lions sur l'île de Délos"><figcaption>Terrasse des Lions, Délos</figcaption></figure>
+    </div>
+    <div>
+      <div class="day-head"><span class="eyebrow">Ημέρα 5 · jeudi 8 octobre</span><h3>Délos, puis retour sur le continent</h3><p class="sub">L'île sacrée d'Apollon est à 30 min de bateau. C'est l'un des plus grands sites archéologiques de Grèce, classé à l'UNESCO.</p></div>
+      <ol class="plan">
+        <li><time>09:15</time><div class="txt"><b>Départ de la villa</b><p>Bagages dans les véhicules. Le départ doit se faire avant 11 h.</p></div></li>
+        <li><time>10:00</time><div class="txt"><b>Bateau pour Délos</b><p>Départ du vieux port de Chora, retour à 13 h 30. Sur place : terrasse des Lions, quartier du théâtre, mosaïques, et la vue depuis le mont Cynthe.</p><div class="tags"><span class="tag price">bateau 25 € + site 20 €</span><span class="tag warn">service du jeudi à confirmer</span></div></div></li>
+        <li><time>14:00</time><div class="txt"><b>Gyros et restitution des véhicules</b><p>Déjeuner à Chora, puis retour des véhicules au nouveau port, à 3 km du vieux port.</p></div></li>
+        <li><time>16:15</time><div class="txt"><b>Ferry Mykonos → Rafina</b><p>Seajets, arrivée à 18 h 55. Le Fast Ferries de 13 h 15 (arrivée 18 h 00) sert de plan B si vous ne faites pas Délos.</p><div class="tags"><span class="tag price">≈ 30–77 €</span><span class="tag warn">horaire à confirmer</span></div></div></li>
+        <li><time>19:30</time><div class="txt"><b>Courses et installation</b><p>Supermarché à Koropi ou Markopoulo sur la route, puis Maison Petrino. Soirée piscine et barbecue.</p></div></li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="day att" id="j6">
+    <div class="day-media">
+      <figure><img loading="lazy" src="img/anafiotika.jpg" alt="Ruelle blanchie à la chaux et bougainvilliers à Anafiotika"><figcaption>Anafiotika</figcaption></figure>
+      <figure><img loading="lazy" src="img/lycabettus.jpg" alt="L'Acropole vue du Lycabette au soleil couchant"><figcaption>Vue du Lycabette</figcaption></figure>
+    </div>
+    <div>
+      <div class="day-head"><span class="eyebrow">Ημέρα 6 · vendredi 9 octobre</span><h3>Athènes à pied</h3><p class="sub">Le véhicule reste à la gare de Koropi. Le métro ligne 3 met environ 35 min jusqu'à Syntagma.</p><div class="meta"><span class="tag price">pass journée 4,10 €</span></div></div>
+      <ol class="plan">
+        <li><time>09:00</time><div class="txt"><b>Métro depuis Koropi</b><p>Un départ toutes les 30 min environ sur cette branche.</p></div></li>
+        <li><time>10:00</time><div class="txt"><b>Syntagma et le Jardin national</b><p>Relève de la garde des evzones devant le Parlement, toutes les heures pile. Ensuite, le Jardin national à l'ombre.</p><div class="tags"><span class="tag free">gratuit</span></div></div></li>
+        <li><time>11:00</time><div class="txt"><b>Stade panathénaïque et Olympiéion</b><p>Le stade des premiers Jeux olympiques modernes (1896), tout en marbre, puis les colonnes du temple de Zeus olympien.</p><div class="tags"><span class="tag price">stade 12 €</span><span class="tag price">Olympiéion 20 €</span><span class="tag">optionnels</span></div></div></li>
+        <li><time>12:30</time><div class="txt"><b>Plaka et Anafiotika</b><p>Les ruelles blanches des maçons des Cyclades, accrochées sous l'Acropole.</p><div class="tags"><span class="tag free">gratuit</span></div></div></li>
+        <li><time>13:30</time><div class="txt"><b>Souvlaki à Monastiraki</b><p>Bairaktaris ou Thanasis, côte à côte. Puis flânerie dans le marché aux puces.</p><div class="tags"><span class="tag price">≈ 10–15 €</span></div></div></li>
+        <li><time>15:00</time><div class="txt"><b>Marché central Varvakios</b><p>Viandes, poissons et épices sous la halle. Fermeture à 18 h.</p><div class="tags"><span class="tag free">gratuit</span></div></div></li>
+        <li><time>17:30</time><div class="txt"><b>Musée de l'Acropole</b><p>Nocturne le vendredi jusqu'à 22 h. Les frises du Parthénon et le sol vitré sur les fouilles.</p><div class="tags"><span class="tag price">20 €</span></div></div></li>
+        <li><time>20:30</time><div class="txt"><b>Grande soirée</b><p>Dîner à Koukaki ou Psyrri, puis Psyrri ou Gazi. Retour par le dernier métro (vers minuit, à vérifier) ou en 2 taxis.</p><div class="tags"><span class="tag price">taxi ≈ 45–65 € / voiture</span></div></div></li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="day att" id="j7">
+    <div class="day-media">
+      <figure><img loading="lazy" src="img/parthenon.jpg" alt="L'Acropole d'Athènes vue de la colline de Philopappou"><figcaption>L'Acropole</figcaption></figure>
+      <figure><img loading="lazy" src="img/sounion.jpg" alt="Le temple de Poséidon au cap Sounion"><figcaption>Temple de Poséidon, Sounion</figcaption></figure>
+    </div>
+    <div>
+      <div class="day-head"><span class="eyebrow">Ημέρα 7 · samedi 10 octobre</span><h3>L'Acropole, puis le cap Sounion</h3><p class="sub">Le Parthénon à l'ouverture, avant la foule, et le temple de Poséidon au coucher du soleil.</p></div>
+      <ol class="plan">
+        <li><time>08:00</time><div class="txt"><b>Acropole, créneau de 8 h</b><p>Propylées, Parthénon, Érechthéion et ses caryatides. Le billet se réserve avec un créneau horaire sur hhticket.gr. Pas de talons, le marbre est glissant.</p><div class="tags"><span class="tag price">30 €</span><span class="tag warn">horaires d'octobre à confirmer</span></div></div></li>
+        <li><time>10:30</time><div class="txt"><b>Agora antique</b><p>Le cœur civique de l'Athènes classique et le temple d'Héphaïstos, le mieux conservé de Grèce.</p><div class="tags"><span class="tag price">20 €</span></div></div></li>
+        <li><time>12:30</time><div class="txt"><b>Déjeuner et colline de Philopappou</b><p>Taverne à Koukaki, puis la colline d'en face pour la vue sur le Parthénon.</p><div class="tags"><span class="tag free">gratuit</span></div></div></li>
+        <li><time>14:30</time><div class="txt"><b>Piscine à la maison</b><p>Retour en métro et repos.</p></div></li>
+        <li><time>17:45</time><div class="txt"><b>Cap Sounion</b><p>Le temple de Poséidon (444 av. J.-C.) au bout de l'Attique, à 45 min. Arrivez avant 18 h 30 pour le coucher du soleil vers 18 h 50. Lord Byron a gravé son nom sur une colonne.</p><div class="tags"><span class="tag price">20 €</span><span class="tag warn">prix à confirmer</span></div></div></li>
+        <li><time>20:00</time><div class="txt"><b>Dernier dîner</b><p>Taverne de poisson à Porto Rafti, à 10 min de la maison.</p></div></li>
+      </ol>
+      <div class="note"><b>Alternative baignade</b><span>Le lac de Vouliagmeni, une eau thermale à 22–24 °C au pied d'une falaise, ouvert de 8 h 30 à 18 h. Environ 19 € le week-end, transat compris. À 25 min de la maison.</span></div>
+    </div>
+  </article>
+
+  <article class="day att" id="j8">
+    <div class="day-media">
+      <figure><img loading="lazy" src="img/vouliagmeni.jpg" alt="Le lac de Vouliagmeni et sa falaise"><figcaption>Lac de Vouliagmeni</figcaption></figure>
+    </div>
+    <div>
+      <div class="day-head"><span class="eyebrow">Ημέρα 8 · dimanche 11 octobre</span><h3>Retour</h3><p class="sub">L'aéroport est à 15 min de la maison.</p></div>
+      <ol class="plan">
+        <li><time>—</time><div class="txt"><b>Rangement et départ</b><p>Faites le plein avant de rendre le véhicule et prévoyez 30 min pour la restitution. Les supermarchés sont fermés le dimanche.</p></div></li>
+      </ol>
+    </div>
+  </article>
+</section>
+
+<!-- ============ TRANSPORT ============ -->
+<section id="transport" style="padding-top:0">
+  <div class="sec-head"><span class="eyebrow">Μεταφορά · se déplacer</span><h2>Un van ou deux voitures</h2><p>Location du dimanche 4 au dimanche 11, prise et rendue à l'aéroport d'Athènes. Le véhicule reste garé à Rafina pendant Mykonos. Estimations pour environ 770 km, avec un carburant à 2,20 € le litre (prix moyen en Grèce fin septembre 2026).</p></div>
+  <div class="cmp-scroll">
+    <table>
+      <thead><tr><th></th><th class="r">Un van 9 places</th><th class="r">Deux voitures</th></tr></thead>
+      <tbody>
+        <tr><th>Location 7 jours</th><td class="r">450–850 €</td><td class="r">450–800 €</td></tr>
+        <tr><th>Carburant</th><td class="r">≈ 150 € <small>(diesel, 9 L/100)</small></td><td class="r">≈ 220 € <small>(2 × 6,5 L/100)</small></td></tr>
+        <tr><th>Péages</th><td class="r">≈ 30 €</td><td class="r">≈ 60 €</td></tr>
+        <tr><th>Parking Rafina, 2 jours</th><td class="r">≈ 22 €</td><td class="r">≈ 44 €</td></tr>
+        <tr class="total"><th>Total</th><td class="r">≈ 650–1 050 €</td><td class="r">≈ 780–1 120 €</td></tr>
+        <tr class="total"><th>Par personne</th><td class="r">≈ 95–150 €</td><td class="r">≈ 110–160 €</td></tr>
+        <tr><th>Conducteurs</th><td class="r">1, plus un relais conseillé</td><td class="r">2 au minimum</td></tr>
+        <tr><th>Bagages</th><td class="r">OK en version longue (L2)</td><td class="r">OK avec 2 breaks ou SUV</td></tr>
+        <tr><th>Stationnement</th><td class="r">Difficile (≈ 5 m) à Nauplie</td><td class="r">Facile</td></tr>
+        <tr><th>Disponibilité</th><td class="r">Rare en dernière minute</td><td class="r">Plus facile à trouver</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="verdict">
+    <div class="rec"><span class="eyebrow">Recommandé</span><h3>Le van, s'il en reste un</h3><p>C'est moins cher, vous restez ensemble dans un seul véhicule et vous n'avez qu'un parking à payer. Le permis B suffit pour 9 places, conducteur compris. Prenez une version longue (Vivaro, Transporter ou Staria L2) pour loger 7 valises. Comparez sur DiscoverCars, Kayak et chez Avance (comptoir dans le terminal).</p></div>
+    <div><span class="eyebrow">Plan B</span><h3>Deux voitures</h3><p>Si aucun van n'est disponible, ou si le groupe veut pouvoir se séparer (une partie à Sounion, l'autre à la piscine). Il faut deux conducteurs et deux cartes de crédit pour les cautions. Prenez des breaks ou des SUV, pas des citadines.</p></div>
+  </div>
+  <p class="fine" style="margin-top:12px">Conditions habituelles : 21 à 23 ans minimum, 1 an de permis, carte de crédit au nom du conducteur principal, caution de 400 à 1 000 €. Pour 7 personnes, embarquer le véhicule sur le ferry (jusqu'à 180 € par trajet pour un van) n'a pas d'intérêt pour une seule nuit.</p>
+</section>
+
+<!-- ============ BUDGET ============ -->
+<section id="budget" style="padding-top:0">
+  <div class="sec-head"><span class="eyebrow">Προϋπολογισμός · le budget</span><h2>Combien ça coûte</h2><p>Prix par personne, hors vols et logements. Cochez ou décochez les activités : le total se met à jour.</p></div>
+  <div class="budget">
+    <div id="bud"></div>
+    <aside class="summary" aria-live="polite">
+      <span class="eyebrow">Total estimé par personne</span>
+      <div class="big num" id="tot">—</div>
+      <div class="grp num" id="grp">—</div>
+      <div class="seg" role="group" aria-label="Transport">
+        <button type="button" id="b-van" aria-pressed="true">Un van</button>
+        <button type="button" id="b-cars" aria-pressed="false">Deux voitures</button>
+      </div>
+      <label class="field" for="food">Repas et sorties
+        <select id="food">
+          <option value="35">Économe · 35 € / jour</option>
+          <option value="50" selected>Normal · 50 € / jour</option>
+          <option value="70">Confort · 70 € / jour</option>
+        </select>
+      </label>
+      <div class="split num" id="split"></div>
+      <p class="fine">Le transport et les ferries sont comptés au milieu de leur fourchette. Les repas couvrent 8 jours. Le samedi 3 ne concerne que les 4 premiers et n'est pas compté.</p>
+    </aside>
+  </div>
+</section>
+
+<!-- ============ PRATIQUE ============ -->
+<section id="pratique" style="padding-top:0">
+  <div class="sec-head"><span class="eyebrow">Πρακτικά · infos pratiques</span><h2>À savoir avant de partir</h2></div>
+  <div class="cards">
+    <div class="card"><h3>Papiers</h3><ul><li><b>Carte d'identité</b> ou passeport en cours de validité.</li><li><b>Carte européenne d'assurance maladie</b> (à demander sur ameli.fr).</li><li><b>Permis de conduire</b> et <b>carte de crédit</b> du conducteur pour la caution du véhicule.</li></ul></div>
+    <div class="card"><h3>Argent</h3><ul><li>Euro. La carte passe presque partout.</li><li>Gardez des <b>espèces</b> : <b>300 € de caution</b> à la villa de Mykonos, petites tavernes, parkings.</li><li>Pourboire : arrondir ou 5 à 10 % au restaurant.</li></ul></div>
+    <div class="card"><h3>Météo début octobre</h3><ul><li>Journées à <b>24–26 °C</b>, nuits à 16–18 °C.</li><li>Mer à <b>22–23 °C</b> : on se baigne encore.</li><li>Vent possible à Mykonos et sur le ferry. Prenez un pull pour les soirées et un anti-nauséeux.</li></ul></div>
+    <div class="card"><h3>Heure et téléphone</h3><ul><li><b>+1 h</b> par rapport à la France.</li><li>Forfait mobile européen sans surcoût.</li><li>Prises électriques identiques à la France.</li><li>Urgences : <b>112</b>.</li></ul></div>
+    <div class="card"><h3>Sites antiques</h3><ul><li>Plus de billet combiné depuis 2025 : chaque site se paie à part.</li><li>Acropole : <b>réservation obligatoire</b> avec créneau horaire sur hhticket.gr.</li><li>Eau, chapeau, crème solaire, chaussures fermées. Drones interdits.</li></ul></div>
+    <div class="card"><h3>Sur la route</h3><ul><li>Péages par carte ou en espèces.</li><li>Conduite nerveuse et beaucoup de scooters : prudence en ville.</li><li>Uber, Bolt et FreeNow commandent des taxis officiels à Athènes. <b>4 passagers maximum</b> par taxi.</li><li>Gare aux pickpockets dans le métro à Monastiraki.</li></ul></div>
+    <div class="card"><h3>Ferries</h3><ul><li>Rafina dans les deux sens : port proche de la maison, billets moins chers qu'au Pirée.</li><li>Présentez-vous <b>45 min</b> avant le départ, billet électronique sur le téléphone.</li><li>À Mykonos, les ferries partent du <b>nouveau port</b> et les bateaux de Délos du <b>vieux port</b>.</li></ul></div>
+    <div class="card"><h3>Courses</h3><ul><li>Supermarchés <b>fermés le dimanche</b> (le 4 et le 11).</li><li>Lidl, Sklavenitis et AB à Nauplie, Koropi et Markopoulo.</li><li>Eau du robinet potable à Athènes. À Mykonos, achetez de l'eau en bouteille.</li></ul></div>
+    <div class="card"><h3>Coucher du soleil</h3><ul><li>Vers <b>18 h 50–19 h 00</b> toute la semaine.</li><li>Les meilleurs spots : promenade d'Arvanitia, moulins de Mykonos, colline de Philopappou, cap Sounion.</li></ul></div>
+  </div>
+</section>
+
+<!-- ============ À RÉSERVER ============ -->
+<section id="reserver" style="padding-top:0">
+  <div class="sec-head"><span class="eyebrow">Κρατήσεις · à réserver</span><h2>La liste avant le départ</h2><p>Classée par urgence. Les cases cochées restent enregistrées dans votre navigateur.</p></div>
+  <div class="todo" id="todo">
+    <label><input type="checkbox" id="t1"><span class="t"><b>Van 9 places ou 2 voitures</b><small>Prise et retour à l'aéroport, du dim. 4 au dim. 11</small></span><span class="prio now">aujourd'hui</span></label>
+    <label><input type="checkbox" id="t2"><span class="t"><b>Ferries Rafina ⇄ Mykonos</b><small>Mer. 7 à 14 h 20, jeu. 8 à 16 h 15 · Ferryhopper ou Seajets</small></span><span class="prio now">aujourd'hui</span></label>
+    <label><input type="checkbox" id="t3"><span class="t"><b>Acropole, créneau de 8 h le sam. 10</b><small>hhticket.gr · 7 billets nominatifs</small></span><span class="prio now">cette semaine</span></label>
+    <label><input type="checkbox" id="t4"><span class="t"><b>Voitures ou quads à Mykonos</b><small>Livraison au nouveau port le mer. 7 à 17 h, retour le jeu. 8 vers 15 h</small></span><span class="prio">avant le 7</span></label>
+    <label><input type="checkbox" id="t5"><span class="t"><b>Parking à Rafina</b><small>Safe Park Harbour, par téléphone : +30 22940 25104</small></span><span class="prio">avant le 7</span></label>
+    <label><input type="checkbox" id="t6"><span class="t"><b>Bateau pour Délos le jeu. 8 à 10 h</b><small>Delos Tours, au vieux port · vérifier qu'il y a un départ le jeudi</small></span><span class="prio">avant le 8</span></label>
+    <label><input type="checkbox" id="t7"><span class="t"><b>Dégustation Lafazanis le mar. 6</b><small>Réservation obligatoire, créneau vers 14 h 30</small></span><span class="prio">avant le 6</span></label>
+    <label><input type="checkbox" id="t8"><span class="t"><b>Tables pour 7</b><small>O Noulis (dim. 4), rooftop à Monastiraki (sam. 3)</small></span><span class="prio">au fil de l'eau</span></label>
+  </div>
+</section>
+
+<!-- ============ LEXIQUE ============ -->
+<section id="lexique" style="padding-top:0">
+  <div class="sec-head"><span class="eyebrow">Λεξικό · petit lexique</span><h2>Dix mots pour se débrouiller</h2></div>
+  <div class="lex">
+    <div><span class="g">Γεια σας</span><span class="ph">yá sas</span><span class="fr">Bonjour, au revoir</span></div>
+    <div><span class="g">Καλημέρα</span><span class="ph">kaliméra</span><span class="fr">Bonjour, le matin</span></div>
+    <div><span class="g">Καλησπέρα</span><span class="ph">kalispéra</span><span class="fr">Bonsoir</span></div>
+    <div><span class="g">Ευχαριστώ</span><span class="ph">efcharistó</span><span class="fr">Merci</span></div>
+    <div><span class="g">Παρακαλώ</span><span class="ph">parakaló</span><span class="fr">S'il vous plaît, de rien</span></div>
+    <div><span class="g">Ναι · Όχι</span><span class="ph">né · óchi</span><span class="fr">Oui · non (« né » veut dire oui)</span></div>
+    <div><span class="g">Πόσο κάνει;</span><span class="ph">póso kání ?</span><span class="fr">Combien ça coûte ?</span></div>
+    <div><span class="g">Τον λογαριασμό</span><span class="ph">ton logariazmó</span><span class="fr">L'addition, s'il vous plaît</span></div>
+    <div><span class="g">Γεια μας!</span><span class="ph">yá mas !</span><span class="fr">Santé !</span></div>
+    <div><span class="g">Καλό ταξίδι</span><span class="ph">kaló taxídi</span><span class="fr">Bon voyage</span></div>
+  </div>
+</section>
+
+<footer>
+  <h3>Sources et crédits</h3>
+  <p>Informations relevées le 2 octobre 2026 sur les sites officiels quand ils étaient accessibles (ministère grec de la Culture, musée de l'Acropole, stade panathénaïque, lac de Vouliagmeni), sinon sur des guides et agrégateurs datés de 2026 (Ferryhopper, ferries.gr, directferries, DiscoverCars, Kayak, takemetoeuropetours, archaeology-travel). Les mentions « à confirmer » signalent des sources contradictoires. Les horaires de ferry et de sites peuvent changer : vérifiez-les la veille.</p>
+  <p>Photos : Wikimedia Commons, sous licences libres.</p>
+  <ul class="cols">{{CREDITS}}</ul>
+  <p>Carte : contours Natural Earth (domaine public), tracés approximatifs.</p>
+</footer>
+</div>
+
+<script>
+(function(){
+  var DAYS = 8;
+  var groups = [
+    {k:'tr', t:'Transport', c:'', rows:[
+      {id:'veh', n:'Location, carburant, péages, parking', s:'van ≈ 95–150 €, 2 voitures ≈ 110–160 €', p:0, fixed:true},
+      {id:'fer', n:'Ferries Rafina ⇄ Mykonos', s:'aller ≈ 36–60 €, retour ≈ 30–77 €', p:95, fixed:true},
+      {id:'myk', n:'Voitures ou quads à Mykonos', s:'24 h, livrés au port', p:20, on:true},
+      {id:'met', n:'Métro à Athènes', s:'2 pass journée à 4,10 €', p:8, on:true}
+    ]},
+    {k:'pe', t:'Péloponnèse', c:'pelo', rows:[
+      {id:'can', n:'Canal de Corinthe', s:'vue depuis la passerelle', p:0, on:true},
+      {id:'pal', n:'Forteresse de Palamidi', s:'', p:20, on:true},
+      {id:'bou', n:'Bourtzi', s:'bateau 7 € + entrée 7 €', p:14, on:true},
+      {id:'epi', n:'Théâtre d’Épidaure', s:'', p:20, on:true},
+      {id:'acr', n:'Acrocorinthe', s:'', p:0, on:true},
+      {id:'cor', n:'Corinthe antique', s:'15 ou 20 € selon les sources', p:15, on:true},
+      {id:'nem', n:'Dégustation à Némée', s:'domaine Lafazanis', p:20, on:true},
+      {id:'myc', n:'Mycènes', s:'', p:20, on:true},
+      {id:'kay', n:'Kayak de mer à Nauplie', s:'4 h, à la place d’Épidaure', p:75, on:false}
+    ]},
+    {k:'cy', t:'Cyclades', c:'cyc', rows:[
+      {id:'del', n:'Délos', s:'bateau 25 € + site 20 €', p:45, on:true}
+    ]},
+    {k:'at', t:'Athènes et Attique', c:'att', rows:[
+      {id:'acp', n:'Acropole', s:'créneau horaire obligatoire', p:30, on:true},
+      {id:'mus', n:'Musée de l’Acropole', s:'nocturne le vendredi', p:20, on:true},
+      {id:'ago', n:'Agora antique', s:'', p:20, on:true},
+      {id:'sou', n:'Cap Sounion', s:'temple de Poséidon', p:20, on:true},
+      {id:'sta', n:'Stade panathénaïque', s:'', p:12, on:false},
+      {id:'oly', n:'Olympiéion', s:'temple de Zeus olympien', p:20, on:false},
+      {id:'lyc', n:'Funiculaire du Lycabette', s:'aller-retour', p:13, on:false},
+      {id:'vou', n:'Lac de Vouliagmeni', s:'tarif week-end, transat compris', p:19, on:false},
+      {id:'roof', n:'Verre sur un rooftop', s:'', p:15, on:true}
+    ]}
+  ];
+  var VEH = {van:120, cars:135};
+  var state = {veh:'van', food:50, off:{}};
+  try { var s = JSON.parse(localStorage.getItem('gr-budget')||'null'); if (s) state = Object.assign(state, s); } catch(e){}
+  function save(){ try { localStorage.setItem('gr-budget', JSON.stringify(state)); } catch(e){} }
+  function isOn(r){ if (r.fixed) return true; return (r.id in state.off) ? !state.off[r.id] : r.on; }
+  function price(r){ return r.id==='veh' ? VEH[state.veh] : r.p; }
+  function eur(n){ return n===0 ? 'gratuit' : n.toLocaleString('fr-FR')+' €'; }
+
+  var host = document.getElementById('bud');
+  groups.forEach(function(g){
+    var box = document.createElement('div'); box.className = 'bgroup '+g.c;
+    var h = document.createElement('h3'); h.innerHTML = '<span>'+g.t+'</span><span class="eyebrow num" data-sub="'+g.k+'"></span>';
+    box.appendChild(h);
+    g.rows.forEach(function(r){
+      var row = document.createElement('div'); row.className = 'brow'; row.dataset.id = r.id;
+      var id = 'b-'+r.id;
+      row.innerHTML = '<input type="checkbox" id="'+id+'"'+(r.fixed?' disabled':'')+'>'+
+        '<label for="'+id+'">'+r.n+(r.s?'<small>'+r.s+'</small>':'')+'</label><span class="r" data-p></span>';
+      var cb = row.querySelector('input'); cb.checked = isOn(r);
+      cb.addEventListener('change', function(){ state.off[r.id] = !cb.checked; save(); render(); });
+      box.appendChild(row);
+    });
+    host.appendChild(box);
+  });
+
+  function render(){
+    var total = 0, split = {};
+    groups.forEach(function(g){
+      var sub = 0;
+      g.rows.forEach(function(r){
+        var row = host.querySelector('[data-id="'+r.id+'"]');
+        var on = isOn(r), p = price(r);
+        row.classList.toggle('off', !on);
+        row.querySelector('[data-p]').textContent = eur(p);
+        if (on) sub += p;
+      });
+      host.querySelector('[data-sub="'+g.k+'"]').textContent = sub.toLocaleString('fr-FR')+' €';
+      split[g.t] = sub; total += sub;
+    });
+    var food = state.food * DAYS; split['Repas et sorties'] = food; total += food;
+    document.getElementById('tot').textContent = '≈ '+Math.round(total).toLocaleString('fr-FR')+' €';
+    document.getElementById('grp').textContent = 'soit ≈ '+Math.round(total*7).toLocaleString('fr-FR')+' € pour le groupe de 7';
+    document.getElementById('split').innerHTML = Object.keys(split).map(function(k){
+      return '<div><span>'+k+'</span><span>'+split[k].toLocaleString('fr-FR')+' €</span></div>'; }).join('');
+    document.getElementById('b-van').setAttribute('aria-pressed', state.veh==='van');
+    document.getElementById('b-cars').setAttribute('aria-pressed', state.veh==='cars');
+    document.getElementById('food').value = String(state.food);
+  }
+  document.getElementById('b-van').addEventListener('click', function(){ state.veh='van'; save(); render(); });
+  document.getElementById('b-cars').addEventListener('click', function(){ state.veh='cars'; save(); render(); });
+  document.getElementById('food').addEventListener('change', function(e){ state.food = +e.target.value; save(); render(); });
+  render();
+
+  var todo = {};
+  try { todo = JSON.parse(localStorage.getItem('gr-todo')||'{}') || {}; } catch(e){}
+  document.querySelectorAll('#todo input').forEach(function(cb){
+    cb.checked = !!todo[cb.id];
+    cb.addEventListener('change', function(){ todo[cb.id] = cb.checked; try { localStorage.setItem('gr-todo', JSON.stringify(todo)); } catch(e){} });
+  });
+})();
+</script>

@@ -1,0 +1,4 @@
+# Site statique : rien à compiler, Netlify publie directement le dossier.
+[build]
+  publish = "carnet/site"
+  command = ""
