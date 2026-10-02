@@ -1,0 +1,48 @@
+<!-- ============ QUI FAIT QUOI (partagé) ============ -->
+<section id="reserver" style="padding-top:0">
+  <div class="sec-head"><span class="eyebrow">Κρατήσεις · à faire ensemble</span><h2>Qui fait quoi</h2><p>Cette liste est partagée : une tâche attribuée ou cochée est visible par tout le groupe. Choisis ton prénom une fois, puis filtre sur « Ma liste ».</p></div>
+  <div class="tdbar">
+    <label class="field" for="me">Je suis
+      <select id="me">
+        <option value="">Choisir mon prénom</option>
+        <option>Antonin</option><option>Nathan</option><option>Xavier</option><option>Simon</option><option>Erwan</option><option>Donovan</option><option>Paul</option>
+      </select>
+    </label>
+    <div class="seg seg3" role="group" aria-label="Filtrer les tâches">
+      <button type="button" data-f="all" aria-pressed="true">Tout</button>
+      <button type="button" data-f="mine" aria-pressed="false">Ma liste</button>
+      <button type="button" data-f="free" aria-pressed="false">À attribuer</button>
+    </div>
+    <div class="prog" aria-live="polite"><span class="num" id="prog-n">0 / 9</span><div class="bar"><i id="prog-bar"></i></div></div>
+  </div>
+  <p class="td-status" id="td-status" role="status"></p>
+  <div class="tasks" id="tasks"></div>
+</section>
+
+<!-- ============ VALISE (perso) ============ -->
+<section id="valise" style="padding-top:0">
+  <div class="sec-head"><span class="eyebrow">Βαλίτσα · la valise</span><h2>Dans le sac</h2><p>Liste personnelle : tes coches restent sur ton téléphone, les autres ne les voient pas.</p></div>
+  <div class="pack" id="pack">
+    <div class="pgroup"><h3>Papiers</h3>
+      <label><input type="checkbox" id="p-id"><span>Carte d'identité ou passeport valide</span></label>
+      <label><input type="checkbox" id="p-ceam"><span>Carte européenne d'assurance maladie (appli ameli)</span></label>
+      <label><input type="checkbox" id="p-permis"><span>Permis de conduire, pour les conducteurs</span></label>
+      <label><input type="checkbox" id="p-cb"><span>Carte bancaire, et carte de crédit pour le conducteur principal</span></label>
+    </div>
+    <div class="pgroup"><h3>Argent</h3>
+      <label><input type="checkbox" id="p-cash"><span>Espèces : ta part des 300 € de caution de Mykonos, plus de quoi payer les tavernes</span></label>
+    </div>
+    <div class="pgroup"><h3>Vêtements</h3>
+      <label><input type="checkbox" id="p-swim"><span>Maillot de bain et serviette (mer à 22–23 °C)</span></label>
+      <label><input type="checkbox" id="p-shoes"><span>Chaussures fermées pour les sites (le marbre glisse)</span></label>
+      <label><input type="checkbox" id="p-pull"><span>Un pull pour le soir et le ferry</span></label>
+      <label><input type="checkbox" id="p-cap"><span>Casquette ou chapeau, lunettes de soleil</span></label>
+    </div>
+    <div class="pgroup"><h3>Santé et divers</h3>
+      <label><input type="checkbox" id="p-sun"><span>Crème solaire</span></label>
+      <label><input type="checkbox" id="p-sea"><span>Anti-nauséeux si tu crains le bateau</span></label>
+      <label><input type="checkbox" id="p-water"><span>Gourde</span></label>
+      <label><input type="checkbox" id="p-batt"><span>Chargeur et batterie externe (pas besoin d'adaptateur)</span></label>
+    </div>
+  </div>
+</section>

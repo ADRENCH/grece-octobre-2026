@@ -60,6 +60,8 @@ section{padding-block:72px}
 .mosaic figure:first-child{grid-row:1/3}
 .mosaic img{width:100%;height:100%;object-fit:cover;display:block}
 .mosaic figcaption{position:absolute;left:10px;bottom:8px;font-family:var(--f-mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--onimg);text-shadow:0 1px 6px rgba(0,0,0,.55)}
+.hero-cta{align-self:flex-start;font-family:var(--f-mono);font-size:.8rem;letter-spacing:.04em;padding:9px 14px;border:1px solid var(--aegean);border-radius:99px;text-decoration:none}
+.hero-cta:hover{background:var(--soft)}
 .meander{height:14px;margin-top:36px;color:var(--aegean);opacity:.55}
 .meander svg{display:block;width:100%;height:14px}
 
@@ -192,16 +194,39 @@ td.r,th.r{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
 .card ul{margin:0;padding-left:18px;display:grid;gap:5px;font-size:.9rem;color:var(--muted)}
 .card ul b{color:var(--ink);font-weight:600}
 
-/* À RÉSERVER */
-.todo{display:grid;gap:0;background:var(--paper);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
-.todo label{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:14px;align-items:center;padding:13px 16px;border-bottom:1px solid var(--line);cursor:pointer}
-.todo label:last-child{border-bottom:0}
-.todo input{width:18px;height:18px;accent-color:var(--olive);margin:0}
-.todo .t{display:grid;gap:2px}
-.todo small{color:var(--muted);font-size:.82rem}
-.todo input:checked + .t b{text-decoration:line-through;color:var(--muted)}
+/* QUI FAIT QUOI */
+.tdbar{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr) minmax(0,1fr);gap:14px;align-items:end;margin-bottom:12px}
+.seg3{grid-template-columns:repeat(3,1fr)}
+.prog{display:grid;gap:6px;font-family:var(--f-mono);font-size:.8rem;color:var(--muted)}
+.prog .bar{height:6px;border-radius:99px;background:var(--soft);overflow:hidden}
+.prog .bar i{display:block;height:100%;width:0;background:var(--olive);transition:width .4s ease}
+.td-status{font-size:.85rem;color:var(--muted);min-height:1.2em;margin-bottom:8px}
+.td-status.warn{color:var(--ochre)}
+.tasks{display:grid;background:var(--paper);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.task{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:14px;align-items:start;padding:14px 16px;border-bottom:1px solid var(--line)}
+.task:last-of-type{border-bottom:0}
+.task > input{width:20px;height:20px;accent-color:var(--olive);margin:2px 0 0;cursor:pointer}
+.task .t{display:grid;gap:3px}
+.task .t label{cursor:pointer}
+.task small{color:var(--muted);font-size:.84rem}
+.task .by{font-family:var(--f-mono);font-size:.72rem;color:var(--muted)}
+.task.done .by{color:var(--olive)}
+.task .side{display:grid;gap:6px;justify-items:end}
+.task select{font:inherit;font-size:.85rem;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:6px 8px;min-width:130px}
+.task.mine{background:color-mix(in srgb,var(--aegean) 7%,var(--paper))}
+.task.mine select{border-color:var(--aegean)}
+.task.done b{text-decoration:line-through;color:var(--muted)}
+.empty{padding:18px 16px;color:var(--muted);font-size:.9rem}
 .prio{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
 .prio.now{color:var(--ochre)}
+
+/* VALISE */
+.pack{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.pgroup{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:16px;display:grid;gap:10px;align-content:start}
+.pgroup h3{font-size:1.2rem}
+.pgroup label{display:grid;grid-template-columns:auto minmax(0,1fr);gap:10px;align-items:start;font-size:.9rem;cursor:pointer}
+.pgroup input{width:18px;height:18px;accent-color:var(--aegean);margin:1px 0 0}
+.pgroup input:checked + span{text-decoration:line-through;color:var(--muted)}
 
 /* LEXIQUE */
 .lex{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
@@ -222,6 +247,9 @@ footer ul{margin:0;padding-left:18px;display:grid;gap:3px}
   .stays{grid-template-columns:repeat(2,minmax(0,1fr))}
   .cards{grid-template-columns:repeat(2,minmax(0,1fr))}
   .lex{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .pack{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .tdbar{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  .tdbar .prog{grid-column:1/3}
   .strip{grid-template-columns:repeat(3,minmax(0,1fr))}
   .strip a{border-bottom:1px solid var(--line)}
 }
@@ -278,8 +306,12 @@ footer ul{margin:0;padding-left:18px;display:grid;gap:3px}
   .summary .big{font-size:2.8rem}
   .brow{padding:9px 12px;gap:10px}
 
-  .todo label{grid-template-columns:auto minmax(0,1fr);row-gap:2px}
-  .todo .prio{grid-column:2}
+  .tdbar{grid-template-columns:minmax(0,1fr)}
+  .tdbar .prog{grid-column:auto}
+  .task{grid-template-columns:auto minmax(0,1fr);row-gap:8px;padding:13px 12px}
+  .task .side{grid-column:2;display:flex;justify-content:space-between;align-items:center;gap:10px}
+  .task select{min-width:0;flex:0 0 auto}
+  .pack{grid-template-columns:minmax(0,1fr)}
   .lex .g{font-size:1.2rem}
   .lex div{padding:12px}
   .cols{columns:1}
@@ -301,6 +333,7 @@ footer ul{margin:0;padding-left:18px;display:grid;gap:3px}
         <h1>Grèce,<br><em>Péloponnèse</em><br>&amp; Cyclades</h1>
         <p class="lede">Huit nuits entre amis : les forteresses vénitiennes de Nauplie, les sites antiques d'Argolide, une nuit à Mykonos et trois jours au pied de l'Acropole.</p>
       </div>
+      <a class="hero-cta" href="#reserver">Qui fait quoi : la liste du groupe →</a>
       <div class="hero-facts num">
         <div><b>7</b><span>voyageurs</span></div>
         <div><b>4</b><span>logements</span></div>
@@ -715,20 +748,55 @@ footer ul{margin:0;padding-left:18px;display:grid;gap:3px}
   </div>
 </section>
 
-<!-- ============ À RÉSERVER ============ -->
+<!-- ============ QUI FAIT QUOI (partagé) ============ -->
 <section id="reserver" style="padding-top:0">
-  <div class="sec-head"><span class="eyebrow">Κρατήσεις · à réserver</span><h2>La liste avant le départ</h2><p>Classée par urgence. Les cases cochées restent enregistrées dans votre navigateur.</p></div>
-  <div class="todo" id="todo">
-    <label><input type="checkbox" id="t1"><span class="t"><b>Van 9 places ou 2 voitures</b><small>Prise et retour à l'aéroport, du dim. 4 au dim. 11</small></span><span class="prio now">aujourd'hui</span></label>
-    <label><input type="checkbox" id="t2"><span class="t"><b>Ferries Rafina ⇄ Mykonos</b><small>Mer. 7 à 14 h 20, jeu. 8 à 16 h 15 · Ferryhopper ou Seajets</small></span><span class="prio now">aujourd'hui</span></label>
-    <label><input type="checkbox" id="t3"><span class="t"><b>Acropole, créneau de 8 h le sam. 10</b><small>hhticket.gr · 7 billets nominatifs</small></span><span class="prio now">cette semaine</span></label>
-    <label><input type="checkbox" id="t4"><span class="t"><b>Voitures ou quads à Mykonos</b><small>Livraison au nouveau port le mer. 7 à 17 h, retour le jeu. 8 vers 15 h</small></span><span class="prio">avant le 7</span></label>
-    <label><input type="checkbox" id="t5"><span class="t"><b>Parking à Rafina</b><small>Safe Park Harbour, par téléphone : +30 22940 25104</small></span><span class="prio">avant le 7</span></label>
-    <label><input type="checkbox" id="t6"><span class="t"><b>Bateau pour Délos le jeu. 8 à 10 h</b><small>Delos Tours, au vieux port · vérifier qu'il y a un départ le jeudi</small></span><span class="prio">avant le 8</span></label>
-    <label><input type="checkbox" id="t7"><span class="t"><b>Dégustation Lafazanis le mar. 6</b><small>Réservation obligatoire, créneau vers 14 h 30</small></span><span class="prio">avant le 6</span></label>
-    <label><input type="checkbox" id="t8"><span class="t"><b>Tables pour 7</b><small>O Noulis (dim. 4), rooftop à Monastiraki (sam. 3)</small></span><span class="prio">au fil de l'eau</span></label>
+  <div class="sec-head"><span class="eyebrow">Κρατήσεις · à faire ensemble</span><h2>Qui fait quoi</h2><p>Cette liste est partagée : une tâche attribuée ou cochée est visible par tout le groupe. Choisis ton prénom une fois, puis filtre sur « Ma liste ».</p></div>
+  <div class="tdbar">
+    <label class="field" for="me">Je suis
+      <select id="me">
+        <option value="">Choisir mon prénom</option>
+        <option>Antonin</option><option>Nathan</option><option>Xavier</option><option>Simon</option><option>Erwan</option><option>Donovan</option><option>Paul</option>
+      </select>
+    </label>
+    <div class="seg seg3" role="group" aria-label="Filtrer les tâches">
+      <button type="button" data-f="all" aria-pressed="true">Tout</button>
+      <button type="button" data-f="mine" aria-pressed="false">Ma liste</button>
+      <button type="button" data-f="free" aria-pressed="false">À attribuer</button>
+    </div>
+    <div class="prog" aria-live="polite"><span class="num" id="prog-n">0 / 9</span><div class="bar"><i id="prog-bar"></i></div></div>
+  </div>
+  <p class="td-status" id="td-status" role="status"></p>
+  <div class="tasks" id="tasks"></div>
+</section>
+
+<!-- ============ VALISE (perso) ============ -->
+<section id="valise" style="padding-top:0">
+  <div class="sec-head"><span class="eyebrow">Βαλίτσα · la valise</span><h2>Dans le sac</h2><p>Liste personnelle : tes coches restent sur ton téléphone, les autres ne les voient pas.</p></div>
+  <div class="pack" id="pack">
+    <div class="pgroup"><h3>Papiers</h3>
+      <label><input type="checkbox" id="p-id"><span>Carte d'identité ou passeport valide</span></label>
+      <label><input type="checkbox" id="p-ceam"><span>Carte européenne d'assurance maladie (appli ameli)</span></label>
+      <label><input type="checkbox" id="p-permis"><span>Permis de conduire, pour les conducteurs</span></label>
+      <label><input type="checkbox" id="p-cb"><span>Carte bancaire, et carte de crédit pour le conducteur principal</span></label>
+    </div>
+    <div class="pgroup"><h3>Argent</h3>
+      <label><input type="checkbox" id="p-cash"><span>Espèces : ta part des 300 € de caution de Mykonos, plus de quoi payer les tavernes</span></label>
+    </div>
+    <div class="pgroup"><h3>Vêtements</h3>
+      <label><input type="checkbox" id="p-swim"><span>Maillot de bain et serviette (mer à 22–23 °C)</span></label>
+      <label><input type="checkbox" id="p-shoes"><span>Chaussures fermées pour les sites (le marbre glisse)</span></label>
+      <label><input type="checkbox" id="p-pull"><span>Un pull pour le soir et le ferry</span></label>
+      <label><input type="checkbox" id="p-cap"><span>Casquette ou chapeau, lunettes de soleil</span></label>
+    </div>
+    <div class="pgroup"><h3>Santé et divers</h3>
+      <label><input type="checkbox" id="p-sun"><span>Crème solaire</span></label>
+      <label><input type="checkbox" id="p-sea"><span>Anti-nauséeux si tu crains le bateau</span></label>
+      <label><input type="checkbox" id="p-water"><span>Gourde</span></label>
+      <label><input type="checkbox" id="p-batt"><span>Chargeur et batterie externe (pas besoin d'adaptateur)</span></label>
+    </div>
   </div>
 </section>
+
 
 <!-- ============ LEXIQUE ============ -->
 <section id="lexique" style="padding-top:0">
@@ -845,11 +913,130 @@ footer ul{margin:0;padding-left:18px;display:grid;gap:3px}
   document.getElementById('food').addEventListener('change', function(e){ state.food = +e.target.value; save(); render(); });
   render();
 
-  var todo = {};
-  try { todo = JSON.parse(localStorage.getItem('gr-todo')||'{}') || {}; } catch(e){}
-  document.querySelectorAll('#todo input').forEach(function(cb){
-    cb.checked = !!todo[cb.id];
-    cb.addEventListener('change', function(){ todo[cb.id] = cb.checked; try { localStorage.setItem('gr-todo', JSON.stringify(todo)); } catch(e){} });
+})();
+</script>
+<script>
+// Liste « Qui fait quoi » partagée via /api/todo (fonction Netlify).
+// Sans API (aperçu Claude, fichier local), elle bascule en mode local sur l'appareil.
+(function(){
+  var API = '/api/todo';
+  var TASKS = [
+    {id:'van', t:'Louer le van 9 places (ou 2 voitures)', d:'Prise dim. 4 à l’aéroport, retour dim. 11. Version longue, carte de crédit du conducteur.', when:'aujourd’hui', now:true},
+    {id:'ferries', t:'Ferries Rafina ⇄ Mykonos pour 7', d:'Mer. 7 à 14 h 20, jeu. 8 à 16 h 15 · Ferryhopper ou Seajets.', when:'aujourd’hui', now:true},
+    {id:'acropole', t:'Billets Acropole, sam. 10 à 8 h', d:'hhticket.gr · 7 billets nominatifs, 30 € chacun.', when:'cette semaine', now:true},
+    {id:'myk', t:'Voitures ou quads à Mykonos', d:'Livrés au nouveau port mer. 7 à 17 h, rendus jeu. 8 vers 15 h.', when:'avant le 7'},
+    {id:'parking', t:'Parking à Rafina', d:'Safe Park Harbour, +30 22940 25104 · du mer. 7 au jeu. 8.', when:'avant le 7'},
+    {id:'caution', t:'300 € en espèces pour la caution de Mykonos', d:'Un seul porteur pour le groupe, à rembourser entre vous.', when:'avant le 7'},
+    {id:'vin', t:'Dégustation Lafazanis, mar. 6 vers 14 h 30', d:'Domaine à Némée, réservation obligatoire.', when:'avant le 6'},
+    {id:'delos', t:'Bateau pour Délos, jeu. 8 à 10 h', d:'Delos Tours, vieux port · vérifier qu’il part bien le jeudi.', when:'avant le 8'},
+    {id:'tables', t:'Tables pour 7', d:'O Noulis à Nauplie (dim. 4), rooftop à Monastiraki (sam. 3, les 4).', when:'au fil de l’eau'}
+  ];
+  var NAMES = ['Antonin','Nathan','Xavier','Simon','Erwan','Donovan','Paul'];
+  var state = {}, shared = false, filter = 'all', me = '';
+  var host = document.getElementById('tasks');
+  var meSel = document.getElementById('me');
+  var statusEl = document.getElementById('td-status');
+
+  function lsGet(k, d){ try { var v = localStorage.getItem(k); return v === null ? d : JSON.parse(v); } catch(e){ return d; } }
+  function lsSet(k, v){ try { localStorage.setItem(k, JSON.stringify(v)); } catch(e){} }
+  function say(msg, warn){ statusEl.textContent = msg || ''; statusEl.classList.toggle('warn', !!warn); }
+  function when(iso){
+    if (!iso) return '';
+    var d = new Date(iso);
+    return d.toLocaleDateString('fr-FR', {weekday:'short', day:'numeric'}) + ' à ' + d.toLocaleTimeString('fr-FR', {hour:'2-digit', minute:'2-digit'});
+  }
+
+  me = lsGet('gr-me', '') || '';
+  filter = lsGet('gr-filter', 'all') || 'all';
+  meSel.value = me;
+
+  TASKS.forEach(function(t){
+    var row = document.createElement('div');
+    row.className = 'task'; row.dataset.id = t.id;
+    var opts = '<option value="">Personne</option>' + NAMES.map(function(n){ return '<option>'+n+'</option>'; }).join('');
+    row.innerHTML =
+      '<input type="checkbox" id="td-'+t.id+'">' +
+      '<div class="t"><label for="td-'+t.id+'"><b>'+t.t+'</b></label><small>'+t.d+'</small><span class="by"></span></div>' +
+      '<div class="side"><span class="prio'+(t.now?' now':'')+'">'+t.when+'</span>' +
+      '<select id="who-'+t.id+'" aria-label="Qui s’occupe de : '+t.t+'">'+opts+'</select></div>';
+    var cb = row.querySelector('input'), sel = row.querySelector('select');
+    cb.addEventListener('change', function(){
+      if (!me) { cb.checked = !cb.checked; needName(); return; }
+      update(t.id, {done: cb.checked});
+    });
+    sel.addEventListener('change', function(){
+      if (!me) { sel.value = (state[t.id] && state[t.id].who) || ''; needName(); return; }
+      update(t.id, {who: sel.value});
+    });
+    host.appendChild(row);
+  });
+
+  function needName(){
+    say('Choisis d’abord ton prénom en haut de la liste.', true);
+    meSel.focus();
+  }
+
+  function render(){
+    var done = 0, cnt = 0;
+    TASKS.forEach(function(t){
+      var s = state[t.id] || {}, row = host.querySelector('[data-id="'+t.id+'"]');
+      row.querySelector('input').checked = !!s.done;
+      var sel = row.querySelector('select'); if (document.activeElement !== sel) sel.value = s.who || '';
+      row.classList.toggle('done', !!s.done);
+      row.classList.toggle('mine', !!me && s.who === me);
+      row.querySelector('.by').textContent = s.done ? 'Fait · coché par ' + s.doneBy + ', ' + when(s.doneAt) : (s.who ? '' : 'Personne pour l’instant');
+      var show = filter === 'all' || (filter === 'mine' && me && s.who === me) || (filter === 'free' && !s.who && !s.done);
+      row.hidden = !show; if (show) cnt++;
+      if (s.done) done++;
+    });
+    document.getElementById('prog-n').textContent = done + ' / ' + TASKS.length + ' fait';
+    document.getElementById('prog-bar').style.width = (done / TASKS.length * 100) + '%';
+    document.querySelectorAll('#reserver [data-f]').forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.f === filter); });
+    var empty = host.querySelector('.empty');
+    if (!cnt) {
+      if (!empty) { empty = document.createElement('p'); empty.className = 'empty'; host.appendChild(empty); }
+      empty.textContent = filter === 'mine' ? (me ? 'Aucune tâche à ton nom. Prends-en une dans « À attribuer ».' : 'Choisis ton prénom pour voir ta liste.') : 'Tout est attribué.';
+    } else if (empty) empty.remove();
+  }
+
+  function update(id, patch){
+    var prev = JSON.parse(JSON.stringify(state[id] || {}));
+    var s = state[id] = Object.assign({}, state[id], patch);
+    if ('done' in patch) { s.doneBy = patch.done ? me : ''; s.doneAt = patch.done ? new Date().toISOString() : ''; }
+    render();
+    if (!shared) { lsSet('gr-todo-local', state); return; }
+    fetch(API, {method:'POST', headers:{'content-type':'application/json'}, body: JSON.stringify(Object.assign({id:id, by:me}, patch))})
+      .then(function(r){ if (!r.ok) throw new Error(r.status); return r.json(); })
+      .then(function(data){ state = data; say(''); render(); })
+      .catch(function(){ state[id] = prev; render(); say('La modification n’a pas été enregistrée. Vérifie ta connexion et réessaie.', true); });
+  }
+
+  function load(){
+    return fetch(API, {cache:'no-store'})
+      .then(function(r){ if (!r.ok) throw new Error(r.status); return r.json(); })
+      .then(function(data){ shared = true; state = data || {}; render(); });
+  }
+
+  meSel.addEventListener('change', function(){ me = meSel.value; lsSet('gr-me', me); say(''); render(); });
+  document.querySelectorAll('#reserver [data-f]').forEach(function(b){
+    b.addEventListener('click', function(){ filter = b.dataset.f; lsSet('gr-filter', filter); render(); });
+  });
+
+  render();
+  load().then(function(){
+    setInterval(function(){ if (!document.hidden && document.activeElement.tagName !== 'SELECT') load().catch(function(){}); }, 15000);
+    document.addEventListener('visibilitychange', function(){ if (!document.hidden) load().catch(function(){}); });
+  }).catch(function(){
+    shared = false; state = lsGet('gr-todo-local', {}) || {}; render();
+    say('Aperçu hors ligne : ici, les coches restent sur cet appareil. La liste partagée fonctionne sur le site du groupe.');
+  });
+
+  // Valise : coches personnelles, sur l'appareil uniquement.
+  var pack = lsGet('gr-pack', {}) || {};
+  document.querySelectorAll('#pack input').forEach(function(cb){
+    cb.checked = !!pack[cb.id];
+    cb.addEventListener('change', function(){ pack[cb.id] = cb.checked; lsSet('gr-pack', pack); });
   });
 })();
+
 </script>

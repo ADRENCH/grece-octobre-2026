@@ -1,4 +1,13 @@
 # Site statique : rien à compiler, Netlify publie directement le dossier.
+# La liste de tâches partagée passe par une fonction (netlify/functions/todo.mjs)
+# qui stocke les coches dans Netlify Blobs.
 [build]
   publish = "carnet/site"
   command = ""
+
+[build.environment]
+  NODE_VERSION = "22"
+
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"

@@ -5,7 +5,9 @@ maps=open('maps.html',encoding='utf-8').read()
 c=json.load(open('credits.json',encoding='utf-8'))
 names={'palamidi':'Nauplie depuis Palamidi','nafplio':'Akronauplie','bourtzi':'Bourtzi','canal':'Canal de Corinthe','acrocorinth':'Acrocorinthe','corinth':"Temple d'Apollon",'mycenae':'Porte des Lions','epidaurus':'Épidaure','littlevenice':'Little Venice','windmills':'Moulins de Kato Mili','delos':'Délos','parthenon':'Acropole','anafiotika':'Anafiotika','sounion':'Sounion','lycabettus':'Vue du Lycabette','monastiraki':'Monastiraki','vouliagmeni':'Vouliagmeni','nemea':'Némée'}
 cr=''.join(f'<li>{names[k]} : <a href="{v["page"]}">{html.escape(v["author"])}</a>, {v["license"]}</li>' for k,v in c.items())
-body=src.replace('{{MAP}}',maps).replace('{{CREDITS}}',cr)
+body=(src.replace('{{MAP}}',maps).replace('{{CREDITS}}',cr)
+      .replace('{{TODO}}',open('parts/todo.html',encoding='utf-8').read())
+      .replace('{{TODOJS}}',open('parts/todo.js',encoding='utf-8').read()))
 open('carnet-grece.html','w',encoding='utf-8').write(body)
 head,rest=body.split('</style>',1)
 standalone=('<!doctype html>\n<html lang="fr">\n<head>\n<meta charset="utf-8">\n'
